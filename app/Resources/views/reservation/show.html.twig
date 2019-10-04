@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservation</h1>
+
+    <table>
+        <tbody>
+        <style>td{width: 250px; height: 200px} th{width: 250px; height: 200px}</style>
+            <tr>
+                <th>formateur</th>
+                <th>promo</th>
+                <th>salle</th>
+                <th>semaine</th>
+                <th>horaire</th>
+                <th>etage</th>
+            </tr>
+            <tr>
+                <td>{{ reservation.formateur }}</td>
+                <td>{{ reservation.promo }}</td>
+                <td>{{ reservation.salle }}</td>
+                <td>{{ reservation.semaine }}</td>
+                <td>{{ reservation.horaire }}</td>
+                <td>{{ reservation.etage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reservation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reservation_edit', { 'id': reservation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
